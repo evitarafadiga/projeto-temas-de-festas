@@ -5,12 +5,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.dataStructures.list.Lista;
+import model.Cliente;
+import model.Endereco;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 
 public class Cadastro extends JFrame {
@@ -135,28 +141,46 @@ public class Cadastro extends JFrame {
 		contentPane.add(txtComp);
 		txtComp.setColumns(10);
 		
-		JButton btnEntrar = new JButton("Voltar");
-		btnEntrar.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menu = new Menu();
 				menu.setVisible(true);
+				dispose();
 			}
 		});
 		
-		btnEntrar.setBackground(new Color(72,209,204));
-		btnEntrar.setBounds(100, 400, 89, 23);
-		contentPane.add(btnEntrar);
+		btnVoltar.setBackground(new Color(72,209,204));
+		btnVoltar.setBounds(100, 400, 89, 23);
+		contentPane.add(btnVoltar);
 		
-		JButton btnSair = new JButton("CADASTRAR");
-		btnSair.addActionListener(new ActionListener() {
+		JButton btnCadastrar = new JButton("CADASTRAR");
+		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cadastro Login = new Cadastro();
-				Login.setVisible(true);
+				//Chamar Cadastro
+				Cliente cliente = new Cliente(
+						1,
+						new Date(System.currentTimeMillis()), 
+						txtNome.getText(), 
+						txtCpf.getText(), 
+						txtTel.getText(), 
+						txtEmail.getText(),
+						new Endereco(
+								1, 
+								txtLog.getText(), 
+								txtCid.getText(), 
+								txtUf.getText(), 
+								Integer.parseInt(txtNum.getText()),
+								txtComp.getText())
+					);
+				Lista<Cliente> lista = new Lista<Cliente>();
+				lista.inserir(cliente);
+				System.out.println("Cliente incluido na lista: \n" + lista.recuperar(0).toString());
 			}
 		});
 		
-		btnSair.setBackground(new Color(72,209,204));
-		btnSair.setBounds(320, 400, 150, 23);
-		contentPane.add(btnSair);
+		btnCadastrar.setBackground(new Color(72,209,204));
+		btnCadastrar.setBounds(320, 400, 150, 23);
+		contentPane.add(btnCadastrar);
 	}
 }

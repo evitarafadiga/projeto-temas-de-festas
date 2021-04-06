@@ -50,8 +50,9 @@ public class Menu extends JFrame {
 		JButton btnClientes = new JButton("CLIENTES");
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Curriculos curriculo = new Curriculos();
-				//curriculo.setVisible(true);
+				Cadastro Login = new Cadastro();
+				Login.setVisible(true);
+				dispose();
 			}
 		});
 		btnClientes.setBackground(new Color(72,209,204));
@@ -94,8 +95,7 @@ public class Menu extends JFrame {
 		JButton btnSair = new JButton("SAIR");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cadastro Login = new Cadastro();
-				Login.setVisible(true);
+				System.exit(0);
 			}
 		});
 		
