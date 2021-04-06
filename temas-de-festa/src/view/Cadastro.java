@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.ActionEvent;
@@ -31,6 +33,9 @@ public class Cadastro extends JFrame {
 	private JTextField txtUf;
 	private JTextField txtNum;
 	private JTextField txtComp;
+	
+	String[] ufStrings = { "RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE","RN","PB","PE", "AL", "SE", "BA","MG", "ES", "RJ", "SP", "PR", "SC", "RS","MS", "MT", "GO", "DF"};
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,7 +54,7 @@ public class Cadastro extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 100, 576, 500);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(95,158,160));
+		contentPane.setBackground(new Color(143,188,143));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -126,10 +131,14 @@ public class Cadastro extends JFrame {
 		contentPane.add(txtCid);
 		txtCid.setColumns(10);
 		
-		txtUf = new JTextField();
-		txtUf.setBounds(280, 280, 207, 20);
-		contentPane.add(txtUf);
-		txtUf.setColumns(10);
+//		txtUf = new JTextField();
+//		txtUf.setBounds(280, 280, 207, 20);
+//		contentPane.add(txtUf);
+//		txtUf.setColumns(10);
+		JComboBox ufList = new JComboBox(ufStrings);
+		ufList.setSelectedIndex(0);
+		ufList.setBounds(280, 280, 207, 20);
+		contentPane.add(ufList);
 		
 		txtNum = new JTextField();
 		txtNum.setBounds(280, 310, 207, 20);
@@ -150,7 +159,7 @@ public class Cadastro extends JFrame {
 			}
 		});
 		
-		btnVoltar.setBackground(new Color(72,209,204));
+		btnVoltar.setBackground(new Color(211,211,211));
 		btnVoltar.setBounds(100, 400, 89, 23);
 		contentPane.add(btnVoltar);
 		
@@ -169,17 +178,17 @@ public class Cadastro extends JFrame {
 								1, 
 								txtLog.getText(), 
 								txtCid.getText(), 
-								txtUf.getText(), 
+								(String) ufList.getSelectedItem(), 
 								Integer.parseInt(txtNum.getText()),
 								txtComp.getText())
 					);
 				Lista<Cliente> lista = new Lista<Cliente>();
 				lista.inserir(cliente);
-				System.out.println("Cliente incluido na lista: \n" + lista.recuperar(0).toString());
+				System.out.printf("Cliente incluido na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
 			}
 		});
 		
-		btnCadastrar.setBackground(new Color(72,209,204));
+		btnCadastrar.setBackground(new Color(211,211,211));
 		btnCadastrar.setBounds(320, 400, 150, 23);
 		contentPane.add(btnCadastrar);
 	}

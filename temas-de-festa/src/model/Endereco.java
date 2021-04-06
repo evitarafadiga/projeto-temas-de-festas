@@ -68,6 +68,11 @@ public class Endereco {
 	public void setComplemento(String complemento) {
 		complemento = complemento;
 	}
+	
+	public static String showUF(String estado) {
+		System.out.println(estado);
+		return estado;
+	}
 
 	@Override
 	public String toString() {

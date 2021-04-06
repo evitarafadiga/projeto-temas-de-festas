@@ -35,7 +35,7 @@ public class Menu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 100, 600, 350);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(95,158,160));
+		contentPane.setBackground(new Color(143,188,143));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -55,7 +55,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnClientes.setBackground(new Color(72,209,204));
+		btnClientes.setBackground(new Color(211,211,211));
 		btnClientes.setBounds(291, 68, 246, 45);
 		contentPane.add(btnClientes);
 		
@@ -66,7 +66,7 @@ public class Menu extends JFrame {
 				//entrevista.setVisible(true);
 			}
 		});
-		btnTemas.setBackground(new Color(72,209,204));
+		btnTemas.setBackground(new Color(211,211,211));
 		btnTemas.setBounds(25, 140, 246, 45);
 		contentPane.add(btnTemas);
 		
@@ -77,7 +77,7 @@ public class Menu extends JFrame {
 				//classificados.setVisible(true);
 			}
 		});
-		btnContratos.setBackground(new Color(72,209,204));
+		btnContratos.setBackground(new Color(211,211,211));
 		btnContratos.setBounds(291, 140, 246, 45);
 		contentPane.add(btnContratos);
 		
@@ -88,7 +88,7 @@ public class Menu extends JFrame {
 				//inscricoes.setVisible(true);
 			}
 		});
-		btnFestas.setBackground(new Color(72,209,204));
+		btnFestas.setBackground(new Color(211,211,211));
 		btnFestas.setBounds(25, 68, 246, 45);
 		contentPane.add(btnFestas);
 		
@@ -99,7 +99,7 @@ public class Menu extends JFrame {
 			}
 		});
 		
-		btnSair.setBackground(new Color(72,209,204));
+		btnSair.setBackground(new Color(211,211,211));
 		btnSair.setBounds(25, 211, 512, 45);
 		contentPane.add(btnSair);
 	}
