@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 
-public class Cadastro extends JFrame {
+public class CadastroCliente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNome;
@@ -40,7 +40,7 @@ public class Cadastro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cadastro frame = new Cadastro();
+					CadastroCliente frame = new CadastroCliente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +49,7 @@ public class Cadastro extends JFrame {
 		});
 	}
 
-	public Cadastro() {
+	public CadastroCliente() {
 		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 100, 576, 500);
@@ -174,22 +174,34 @@ public class Cadastro extends JFrame {
 						txtCpf.getText(), 
 						txtTel.getText(), 
 						txtEmail.getText(),
-						new Endereco(
-								1, 
-								txtLog.getText(), 
-								txtCid.getText(), 
-								(String) ufList.getSelectedItem(), 
-								Integer.parseInt(txtNum.getText()),
-								txtComp.getText())
+						end()
 					);
 				Lista<Cliente> lista = new Lista<Cliente>();
 				lista.inserir(cliente);
 				System.out.printf("Cliente incluido na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
+				
+			}
+			
+			public Endereco end() {
+				int num = 0;
+				Endereco end = new Endereco(1, txtLog.getText(),
+												txtCid.getText(),
+												(String) ufList.getSelectedItem(),
+												Integer.parseInt(txtNum.getText()),
+												txtComp.getText());
+				
+				Lista<Endereco> listaEnd = new Lista<Endereco>();
+				listaEnd.inserir(end);
+				System.out.printf("Endereco incluido na lista: \n" + listaEnd.recuperar(0).toString(), Endereco.showUF(""));
+				return end;
+				
 			}
 		});
+		
 		
 		btnCadastrar.setBackground(new Color(211,211,211));
 		btnCadastrar.setBounds(320, 400, 150, 23);
 		contentPane.add(btnCadastrar);
 	}
+	
 }

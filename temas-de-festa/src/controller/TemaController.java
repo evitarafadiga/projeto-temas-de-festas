@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,40 +11,41 @@ import java.nio.file.Paths;
 import java.util.Date;
 
 import controller.dataStructures.list.Lista;
+import model.Tema;
 import model.Cliente;
 import model.Endereco;
 
-public class ClienteController {
-	final Path path = Paths.get("D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt");
-	Lista<Cliente> lista = new Lista<Cliente>();
+public class TemaController {
+	
+	final Path path = Paths.get("D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\temas.txt");
+	Lista<Tema> listaTema = new Lista<Tema>();
 
-	public Lista<Cliente> getListaCliente() {
+	public Lista<Tema> getListaTemas() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
-				String[] cliente = line.split(";");
-				Cliente data = new Cliente(
-						Integer.parseInt(cliente[0]), 
-						new Date(cliente[1]),
-						cliente[2], 
-						cliente[3], 
-						cliente[4], 
-						cliente[5], 
-						new Endereco());
-				lista.inserir(data);
+				String[] tema = line.split(";");
+				Tema data = new Tema(
+						Integer.parseInt(tema[0]),
+						null, 								// <----- TRATAR ESSA IMAGE
+						Double.parseDouble(tema[2]),
+						tema[3],
+						new Date(tema[4]),
+						tema[5]);
+				listaTema.inserir(data);
 			}
 			br.close();
 		} catch (Exception e) {
 			System.out.println("Erro");
 		}
-		return lista;
+		return listaTema;
 	}
 
-	public Cliente recuperar(int posicao) {
-		return lista.recuperar(posicao);
+	public Tema recuperar(int posicao) {
+		return listaTema.recuperar(posicao);
 	}
 
-	public void saveListCliente(Lista<Cliente> lista) {
+	public void saveListCliente(Lista<Tema> lista) {
 		try {
 			BufferedWriter bw = null;
 			File file = new File(path.toString());
@@ -58,12 +60,13 @@ public class ClienteController {
 	}
 
 	public int retornaTamanho() {
-		return lista.tamanho();
+		return listaTema.tamanho();
 	}
 
 	public static void main(String[] args) {
-		ClienteController cc = new ClienteController();
-		System.out.println(cc.getListaCliente().toString());
-		cc.saveListCliente(cc.getListaCliente());
+		TemaController tc = new TemaController();
+		System.out.println(tc.getListaTemas().toString());
+		tc.saveListCliente(tc.getListaTemas());
 	}
+
 }
