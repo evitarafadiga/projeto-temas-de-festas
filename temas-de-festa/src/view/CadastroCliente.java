@@ -30,7 +30,7 @@ public class CadastroCliente extends JFrame {
 	private JTextField txtEmail;
 	private JTextField txtLog;
 	private JTextField txtCid;
-	private JTextField txtUf;
+//	private JTextField txtUf;
 	private JTextField txtNum;
 	private JTextField txtComp;
 	
@@ -135,10 +135,10 @@ public class CadastroCliente extends JFrame {
 //		txtUf.setBounds(280, 280, 207, 20);
 //		contentPane.add(txtUf);
 //		txtUf.setColumns(10);
-		JComboBox ufList = new JComboBox(ufStrings);
-		ufList.setSelectedIndex(0);
-		ufList.setBounds(280, 280, 207, 20);
-		contentPane.add(ufList);
+		JComboBox ufBox = new JComboBox(ufStrings);
+		ufBox.setSelectedIndex(0);
+		ufBox.setBounds(280, 280, 207, 20);
+		contentPane.add(ufBox);
 		
 		txtNum = new JTextField();
 		txtNum.setBounds(280, 310, 207, 20);
@@ -186,7 +186,7 @@ public class CadastroCliente extends JFrame {
 				int num = 0;
 				Endereco end = new Endereco(1, txtLog.getText(),
 												txtCid.getText(),
-												(String) ufList.getSelectedItem(),
+												(String) ufBox.getSelectedItem(),
 												Integer.parseInt(txtNum.getText()),
 												txtComp.getText());
 				

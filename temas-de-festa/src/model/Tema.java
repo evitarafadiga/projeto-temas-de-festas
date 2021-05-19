@@ -68,5 +68,11 @@ public class Tema {
 	public void setImg(Image img) {
 		this.img = img;
 	}
+	
+	@Override
+	public String toString() {
+		return "Tema [id=" + id + ", valor=" + valor + ", status=" + status + ", dataDisponibilizacao="
+				+ dataDisponibilizacao + ", descricao=" + descricao + "]";
+	}
 
 }

@@ -62,8 +62,9 @@ public class Menu extends JFrame {
 		JButton btnTemas = new JButton("TEMAS");
 		btnTemas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Entrevistas entrevista = new Entrevistas();
-				//entrevista.setVisible(true);
+				CadastroTema novoTema = new CadastroTema();
+				novoTema.setVisible(true);
+				dispose();
 			}
 		});
 		btnTemas.setBackground(new Color(211,211,211));
