@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
@@ -14,10 +15,12 @@ import model.Cliente;
 import model.Endereco;
 
 public class ClienteController {
-	final Path path = Paths.get("D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt");
+	
+	final Path path = Paths.get(resourcePath());
 	Lista<Cliente> lista = new Lista<Cliente>();
 
 	public Lista<Cliente> getListaCliente() {
+		
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -53,12 +56,31 @@ public class ClienteController {
 			bw.close();
 
 		} catch (Exception e) {
-
+			System.out.println("Erro de salvamento de arquivo.");
 		}
 	}
 
 	public int retornaTamanho() {
 		return lista.tamanho();
+	}
+	
+	static String resourcePath() {
+		String resourcePath = null; 
+		switch (System.getProperty("os.name")) {
+		            case "Linux":  resourcePath = "/home/ProjetoED/data/cliente";
+		            return resourcePath;
+		            
+		            case "Windows":  resourcePath = "D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt";
+		            return resourcePath;
+		            default:
+		            return null;
+		}
+	}
+	
+	static void fileExists() {
+		Path path = Path.of(resourcePath());
+		boolean exists = Files.exists(path);
+		System.out.println("exists = " + exists);
 	}
 
 	public static void main(String[] args) {

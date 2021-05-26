@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
+	private String opcaoNome = "";
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -50,7 +51,8 @@ public class Menu extends JFrame {
 		JButton btnClientes = new JButton("CLIENTES");
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CadastroCliente Login = new CadastroCliente();
+				opcaoNome = "Cliente";
+				Opcoes Login = new Opcoes(opcaoNome);
 				Login.setVisible(true);
 				dispose();
 			}
@@ -62,7 +64,8 @@ public class Menu extends JFrame {
 		JButton btnTemas = new JButton("TEMAS");
 		btnTemas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CadastroTema novoTema = new CadastroTema();
+				opcaoNome = "Tema";
+				Opcoes novoTema = new Opcoes(opcaoNome);
 				novoTema.setVisible(true);
 				dispose();
 			}
@@ -74,8 +77,10 @@ public class Menu extends JFrame {
 		JButton btnContratos = new JButton("CONTRATOS");
 		btnContratos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Classificados classificados = new Classificados();
-				//classificados.setVisible(true);
+				opcaoNome = "Contrato";
+				Opcoes novoContrato = new Opcoes(opcaoNome);
+				novoContrato.setVisible(true);
+				dispose();
 			}
 		});
 		btnContratos.setBackground(new Color(211,211,211));
@@ -85,8 +90,10 @@ public class Menu extends JFrame {
 		JButton btnFestas = new JButton("FESTAS");
 		btnFestas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Inscricoes inscricoes = new Inscricoes();
-				//inscricoes.setVisible(true);
+				opcaoNome = "Festa";
+				Opcoes novaFesta = new Opcoes(opcaoNome);
+				novaFesta.setVisible(true);
+				dispose();
 			}
 		});
 		btnFestas.setBackground(new Color(211,211,211));
