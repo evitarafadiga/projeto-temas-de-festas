@@ -49,7 +49,9 @@ public class ClienteController {
 	public void saveListCliente(Lista<Cliente> lista) {
 		try {
 			BufferedWriter bw = null;
-			File file = new File(path.toString());
+			File file = new File(path.toString());		
+			if (!file.exists())
+			    Files.createFile(file.toPath());
 			FileWriter fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
 			bw.write(lista.montaTxt());
@@ -67,7 +69,7 @@ public class ClienteController {
 	static String resourcePath() {
 		String resourcePath = null; 
 		switch (System.getProperty("os.name")) {
-		            case "Linux":  resourcePath = "/home/ProjetoED/data/cliente";
+		            case "Linux":  resourcePath = System.getProperty("user.home")+"/ProjetoED/data/cliente";
 		            return resourcePath;
 		            
 		            case "Windows":  resourcePath = "D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt";

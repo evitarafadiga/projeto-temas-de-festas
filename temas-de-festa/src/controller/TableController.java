@@ -19,6 +19,9 @@ import javax.swing.JTable;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
+import controller.dataStructures.list.Lista;
+import model.Cliente;
+
 public class TableController {
 	
 	static void fileExists() {
@@ -30,18 +33,24 @@ public class TableController {
 	static String resourcePath() {
 		String resourcePath = null; 
 		switch (System.getProperty("os.name")) {
-		            case "Linux":  resourcePath = "/home/$USER/ProjetoED/data/cliente";
-		            System.out.println("Linux");
+		            case "Linux":  resourcePath = System.getProperty("user.home")+"/ProjetoED/data/cliente";
 		            return resourcePath;
+		            
 		            case "Windows":  resourcePath = "D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt";
 		            return resourcePath;
 		            default:
-		            	System.out.println("Erro");
 		            return null;
 		}
 	}
+	
+	
+	public static String getStatic(Lista l) {
+		String texto = l.montaTxt();
+		return texto;
+	}
 
     public TableController() {
+    	Lista<Cliente> lista = new Lista<Cliente>();
         // TODO Auto-generated constructor stub
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,7 +58,7 @@ public class TableController {
         BufferedReader reader;
         try {
             reader = new BufferedReader(new InputStreamReader(
-                                        new FileInputStream(resourcePath())));
+                                        new FileInputStream(getStatic(lista))));
             Map<String, Object[]> result = new LinkedHashMap<String, Object[]>();
 
             while (reader.ready()) {
@@ -92,7 +101,8 @@ public class TableController {
     }
 
     public static void main(String[] args) {
-        //new TableController();
+    	
+        new TableController();
     	fileExists();
     }
 
