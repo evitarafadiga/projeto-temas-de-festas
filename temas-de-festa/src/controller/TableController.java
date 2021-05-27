@@ -36,7 +36,7 @@ public class TableController {
 		            case "Linux":  resourcePath = System.getProperty("user.home")+"/ProjetoED/data/cliente";
 		            return resourcePath;
 		            
-		            case "Windows":  resourcePath = "D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt";
+		            case "Windows":  resourcePath = "/resources/cliente.txt";
 		            return resourcePath;
 		            default:
 		            return null;
