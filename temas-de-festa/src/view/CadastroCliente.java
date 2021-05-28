@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.ClienteController;
+import controller.EnderecoController;
 import controller.dataStructures.list.Lista;
 import model.Cliente;
 import model.Endereco;
@@ -180,6 +182,8 @@ public class CadastroCliente extends JFrame {
 				lista.inserir(cliente);
 				System.out.printf("Cliente incluido na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
 				
+				ClienteController cc = new ClienteController();
+				cc.saveListCliente(lista);
 			}
 			
 			public Endereco end() {
@@ -193,9 +197,13 @@ public class CadastroCliente extends JFrame {
 				Lista<Endereco> listaEnd = new Lista<Endereco>();
 				listaEnd.inserir(end);
 				System.out.printf("Endereco incluido na lista: \n" + listaEnd.recuperar(0).toString(), Endereco.showUF(""));
+				EnderecoController ec = new EnderecoController();
+				ec.saveListEndereco(listaEnd);
 				return end;
-				
 			}
+			
+			
+			
 		});
 		
 		

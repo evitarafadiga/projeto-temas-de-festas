@@ -3,8 +3,8 @@ package model;
 import java.util.Date;
 
 public class Festa {
-	private Cliente cliente;
-	private Tema tema;
+	private int cliente;
+	private int tema;
 	private Endereco endereco;
 	private Double valor;
 	private Double despesas;
@@ -13,7 +13,7 @@ public class Festa {
 	private Date horaInicio;
 	private Date horaFim;
 
-	public Festa(Cliente cliente, Tema tema, Endereco endereco, Double valor, Double despesas, Double desconto,
+	public Festa(int cliente, int tema, Endereco endereco, Double valor, Double despesas, Double desconto,
 			String descricaoDespesas, Date horaInicio, Date horaFim) {
 		this.cliente = cliente;
 		this.tema = tema;
@@ -27,19 +27,19 @@ public class Festa {
 
 	}
 
-	public Cliente getCliente() {
+	public int getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(int cliente) {
 		this.cliente = cliente;
 	}
 
-	public Tema getTema() {
+	public int getTema() {
 		return tema;
 	}
 
-	public void setTema(Tema tema) {
+	public void setTema(int tema) {
 		this.tema = tema;
 	}
 

@@ -11,41 +11,45 @@ import java.nio.file.Paths;
 import java.util.Date;
 
 import controller.dataStructures.list.Lista;
+import model.Festa;
 import model.Tema;
 import model.Cliente;
 import model.Endereco;
 
-public class TemaController {
+public class FestaController {
 	
-	final Path path = Paths.get("C:\\tema");
-	Lista<Tema> listaTema = new Lista<Tema>();
+	final Path path = Paths.get("C:\\festa");
+	Lista<Festa> listaFesta = new Lista<Festa>();
 
-	public Lista<Tema> getListaTemas() {
+	public Lista<Festa> getListaTemas() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
-				String[] tema = line.split(";");
-				Tema data = new Tema(
-						Integer.parseInt(tema[0]),
-						null, 								// <----- TRATAR ESSA IMAGE
-						Double.parseDouble(tema[2]),
-						tema[3],
-						new Date(tema[4]),
-						tema[5]);
-				listaTema.inserir(data);
+				String[] festa = line.split(";");
+				Festa data = new Festa(
+						Integer.parseInt(festa[0]),
+						Integer.parseInt(festa[1]),
+						new Endereco(),
+						Double.parseDouble(festa[3]),
+						Double.parseDouble(festa[4]),
+						Double.parseDouble(festa[5]),
+						festa[6],
+						new Date(festa[7]),
+						new Date(festa[8]));
+				listaFesta.inserir(data);
 			}
 			br.close();
 		} catch (Exception e) {
 			System.out.println("Erro");
 		}
-		return listaTema;
+		return listaFesta;
 	}
 
-	public Tema recuperar(int posicao) {
-		return listaTema.recuperar(posicao);
+	public Festa recuperar(int posicao) {
+		return listaFesta.recuperar(posicao);
 	}
 
-	public void saveListCliente(Lista<Tema> lista) {
+	public void saveListFesta(Lista<Festa> lista) {
 		try {
 			BufferedWriter bw = null;
 			File file = new File(path.toString());
@@ -60,13 +64,13 @@ public class TemaController {
 	}
 
 	public int retornaTamanho() {
-		return listaTema.tamanho();
+		return listaFesta.tamanho();
 	}
 
 	public static void main(String[] args) {
-		TemaController tc = new TemaController();
-		System.out.println(tc.getListaTemas().toString());
-		tc.saveListCliente(tc.getListaTemas());
+		FestaController fc = new FestaController();
+		System.out.println(fc.getListaTemas().toString());
+		fc.saveListFesta(fc.getListaTemas());
 	}
 
 }

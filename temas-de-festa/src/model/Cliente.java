@@ -23,8 +23,6 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
-
-
 	public int getId() {
 		return id;
 	}

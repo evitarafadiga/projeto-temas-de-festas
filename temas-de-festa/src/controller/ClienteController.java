@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
@@ -14,7 +15,7 @@ import model.Cliente;
 import model.Endereco;
 
 public class ClienteController {
-	final Path path = Paths.get("D:\\Desenvolvimento\\ProjetoED\\ProjetoED\\src\\data\\cliente.txt");
+	final Path path = Paths.get("C:\\cliente");
 	Lista<Cliente> lista = new Lista<Cliente>();
 
 	public Lista<Cliente> getListaCliente() {
@@ -42,11 +43,11 @@ public class ClienteController {
 	public Cliente recuperar(int posicao) {
 		return lista.recuperar(posicao);
 	}
-
+	
 	public void saveListCliente(Lista<Cliente> lista) {
 		try {
 			BufferedWriter bw = null;
-			File file = new File(path.toString());
+			File file = new File("C:\\cliente");
 			FileWriter fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
 			bw.write(lista.montaTxt());
@@ -54,6 +55,20 @@ public class ClienteController {
 
 		} catch (Exception e) {
 
+		}
+	}
+	
+	public static String openListCliente(Lista<Cliente> lista) {
+		try {
+			BufferedReader br = null;
+			File file = new File("C:\\cliente");
+			FileReader fr = new FileReader(file);
+			br = new BufferedReader(br);
+			br.read();
+			br.close();
+			return lista.montaTxt();
+		}	catch (Exception e) {
+			return null;
 		}
 	}
 
@@ -65,5 +80,6 @@ public class ClienteController {
 		ClienteController cc = new ClienteController();
 		System.out.println(cc.getListaCliente().toString());
 		cc.saveListCliente(cc.getListaCliente());
+		
 	}
 }

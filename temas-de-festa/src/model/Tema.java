@@ -21,6 +21,10 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
+	public Tema() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getId() {
 		return id;
 	}

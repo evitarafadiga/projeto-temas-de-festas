@@ -1,51 +1,42 @@
 package controller;
 
-import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 
 import controller.dataStructures.list.Lista;
-import model.Tema;
-import model.Cliente;
 import model.Endereco;
 
-public class TemaController {
-	
-	final Path path = Paths.get("C:\\tema");
-	Lista<Tema> listaTema = new Lista<Tema>();
+public class EnderecoController {
+	final Path path = Paths.get("C:\\endereco");
+	Lista<Endereco> lista = new Lista<Endereco>();
 
-	public Lista<Tema> getListaTemas() {
+	public Lista<Endereco> getListaEndereco() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
-				String[] tema = line.split(";");
-				Tema data = new Tema(
-						Integer.parseInt(tema[0]),
-						null, 								// <----- TRATAR ESSA IMAGE
-						Double.parseDouble(tema[2]),
-						tema[3],
-						new Date(tema[4]),
-						tema[5]);
-				listaTema.inserir(data);
+				String[] end = line.split(";");
+				Endereco data = new Endereco();// Necessario fazer o link com endereço
+				lista.inserir(data);
 			}
 			br.close();
 		} catch (Exception e) {
 			System.out.println("Erro");
 		}
-		return listaTema;
+		return lista;
 	}
 
-	public Tema recuperar(int posicao) {
-		return listaTema.recuperar(posicao);
+	public Endereco recuperar(int posicao) {
+		return lista.recuperar(posicao);
 	}
-
-	public void saveListCliente(Lista<Tema> lista) {
+	
+	public void saveListEndereco(Lista<Endereco> lista) {
 		try {
 			BufferedWriter bw = null;
 			File file = new File(path.toString());
@@ -60,13 +51,13 @@ public class TemaController {
 	}
 
 	public int retornaTamanho() {
-		return listaTema.tamanho();
+		return lista.tamanho();
 	}
 
 	public static void main(String[] args) {
-		TemaController tc = new TemaController();
-		System.out.println(tc.getListaTemas().toString());
-		tc.saveListCliente(tc.getListaTemas());
+		EnderecoController cc = new EnderecoController();
+		System.out.println(cc.getListaEndereco().toString());
+		cc.saveListEndereco(cc.getListaEndereco());
+		
 	}
-
 }

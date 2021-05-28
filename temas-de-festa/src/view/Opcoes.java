@@ -41,7 +41,7 @@ public class Opcoes extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblBemVindoa = new JLabel("OpÃ§Ãµes de "+nomeOpcao);
+		JLabel lblBemVindoa = new JLabel("Opções de "+nomeOpcao);
 		lblBemVindoa.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBemVindoa.setForeground(new Color(20, 20, 20));
 		lblBemVindoa.setFont(new Font("Arial", Font.BOLD, 26));
@@ -111,7 +111,7 @@ public class Opcoes extends JFrame{
 		btnTemas.setBounds(25, 140, 246, 45);
 		contentPane.add(btnTemas);
 		
-		JButton btnContratos = new JButton("RemoÃ§Ã£o de "+nomeOpcao);
+		JButton btnContratos = new JButton("Remocao de "+nomeOpcao);
 		btnContratos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -143,7 +143,7 @@ public class Opcoes extends JFrame{
 		btnContratos.setBounds(291, 140, 246, 45);
 		contentPane.add(btnContratos);
 		
-		JButton btnFestas = new JButton("AtualizaÃ§Ã£o de "+nomeOpcao);
+		JButton btnFestas = new JButton("Atualização de "+nomeOpcao);
 		btnFestas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
