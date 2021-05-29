@@ -13,6 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import tables.JTableCliente;
+import tables.JTableEndereco;
+import tables.JTableTema;
+
 public class Opcoes extends JFrame{
 
 	private JPanel contentPane;
@@ -62,14 +66,17 @@ public class Opcoes extends JFrame{
 					CadastroFesta LoginFesta = new CadastroFesta();
 					//LoginFesta.setVisible(true);
 					//dispose();
+					break;
 				case "Endereco":
 					CadastroEndereco cadEnd = new CadastroEndereco();
 					//cadEnd.setVisible(true);
 					//dispose();
+					break;
 				case "Tema":
 					CadastroTema cadTema = new CadastroTema();
 					cadTema.setVisible(true);
 					dispose();
+					break;
 				default:
 					break;	
 				}	
@@ -85,22 +92,22 @@ public class Opcoes extends JFrame{
 				
 				switch(nomeOpcao) {
 				case "Cliente":
-					JTableExample Login = new JTableExample();
+					JTableCliente Login = new JTableCliente();
 					Login.setVisible(true);
 					dispose();
 					break;
 				case "Festa":
-					JTableExample LoginFesta = new JTableExample();
+					JTableCliente LoginFesta = new JTableCliente();
 					//LoginFesta.setVisible(true);
 					//dispose();
 					break;
 				case "Endereco":
-					JTableExample cadEnd = new JTableExample();
+					JTableEndereco cadEnd = new JTableEndereco();
 					//cadEnd.setVisible(true);
 					//dispose();
 					break;
 				case "Tema":
-					JTableExample cadTema = new JTableExample();
+					JTableTema cadTema = new JTableTema();
 					cadTema.setVisible(true);
 					dispose();
 					break;
@@ -120,22 +127,22 @@ public class Opcoes extends JFrame{
 				
 				switch(nomeOpcao) {
 				case "Cliente":
-					JTableExample Login = new JTableExample();
+					JTableCliente Login = new JTableCliente();
 					Login.setVisible(true);
 					dispose();
 					break;
 				case "Festa":
-					JTableExample LoginFesta = new JTableExample();
+					JTableCliente LoginFesta = new JTableCliente();
 					//LoginFesta.setVisible(true);
 					//dispose();
 					break;
 				case "Endereco":
-					JTableExample cadEnd = new JTableExample();
+					JTableEndereco cadEnd = new JTableEndereco();
 					//cadEnd.setVisible(true);
 					//dispose();
 					break;
 				case "Tema":
-					JTableExample cadTema = new JTableExample();
+					JTableTema cadTema = new JTableTema();
 					cadTema.setVisible(true);
 					dispose();
 					break;
@@ -155,22 +162,22 @@ public class Opcoes extends JFrame{
 			
 				switch(nomeOpcao) {
 				case "Cliente":
-					JTableExample Login = new JTableExample();
+					JTableCliente Login = new JTableCliente();
 					Login.setVisible(true);
 					dispose();
 					break;
 				case "Festa":
-					JTableExample LoginFesta = new JTableExample();
+					JTableCliente LoginFesta = new JTableCliente();
 					//LoginFesta.setVisible(true);
 					//dispose();
 					break;
 				case "Endereco":
-					JTableExample cadEnd = new JTableExample();
+					JTableEndereco cadEnd = new JTableEndereco();
 					//cadEnd.setVisible(true);
 					//dispose();
 					break;
 				case "Tema":
-					JTableExample cadTema = new JTableExample();
+					JTableTema cadTema = new JTableTema();
 					cadTema.setVisible(true);
 					dispose();
 					break;

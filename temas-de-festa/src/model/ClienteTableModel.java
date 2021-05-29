@@ -1,12 +1,10 @@
-package controller;
+package model;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 import controller.dataStructures.list.Lista;
-import model.Cliente;
-import model.Endereco;
 
 public class ClienteTableModel extends AbstractTableModel {
 	
@@ -97,7 +95,7 @@ public class ClienteTableModel extends AbstractTableModel {
             case COLUNA_ENDERECO:
                 return cliente.getEndereco();
             case COLUNA_SELECT:
-            	return cliente.getStatus();
+            	return cliente.getSelect();
             default:
                 return String.class;
         }
@@ -135,7 +133,7 @@ public class ClienteTableModel extends AbstractTableModel {
                 cliente.setEndereco((Endereco) null);
                 break;
             case COLUNA_SELECT:
-            	cliente.setStatus((boolean) aValue);
+            	cliente.setSelect((boolean) aValue);
            	break;
         }
         //este método é que notifica a tabela que houve alteração de dados

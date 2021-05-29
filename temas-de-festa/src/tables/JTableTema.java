@@ -1,46 +1,61 @@
-package view;
+package tables;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import controller.ClienteTableModel;
 import controller.dataStructures.list.Lista;
-import model.Cliente;
+import model.ClienteTableModel;
 import model.Endereco;
+import model.EnderecoTableModel;
+import model.Tema;
+import model.TemaTableModel;
+import model.Endereco;
+import view.Menu;
 
-public class JTableExample extends JFrame {
+public class JTableTema extends JFrame {
 
     private JTable tabela;
     private JScrollPane scrollPainel;
+    private String selectedImagePath = "/temas-de-festa/src/images/broken-icon.gif";
 
-    public JTableExample() {
+    public JTableTema() {
         renderizarTela();
     }
 
     private void renderizarTela() {
         
         //4 ojetos criados para popular a tabela
-    
-    	Lista<Cliente> lista = new Lista<>();
-    	Endereco end = null;
-        Cliente c = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c1 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c2 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c3 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c4 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c5 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c6 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c7 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c8 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c9 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
+    	   	
+    	JLabel imageLabel = new JLabel();
+        ImageIcon imageicon = new ImageIcon(selectedImagePath);
+        Image img = imageicon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+        imageLabel.setIcon(new ImageIcon(img));
+    	
+    	Lista<Tema> lista = new Lista<>();
+    	Tema c = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c1 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c2 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c3 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c4 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c5 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c6 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c7 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c8 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
+    	Tema c9 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
         
+       
         lista.inserir(c);
         lista.inserir(c1);
         lista.inserir(c2);
@@ -52,10 +67,8 @@ public class JTableExample extends JFrame {
         lista.inserir(c8);
         lista.inserir(c9);
         
-		
-		
         //cria um objeto do nosso model
-        ClienteTableModel model = new ClienteTableModel(lista);
+        TemaTableModel model = new TemaTableModel(lista);
         
         //instancia a tabela já com o model como argumento
         this.tabela = new JTable(model);
@@ -83,7 +96,7 @@ public class JTableExample extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JTableExample tb = new JTableExample();
+                JTableTema tb = new JTableTema();
                 tb.setLocationRelativeTo(null);
                 tb.setVisible(true);
             }

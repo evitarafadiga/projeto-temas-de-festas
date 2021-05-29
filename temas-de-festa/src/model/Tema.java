@@ -11,6 +11,7 @@ public class Tema {
 	private String status;
 	private Date dataDisponibilizacao;
 	private String descricao;
+	private Boolean select;
 
 	public Tema(Integer id, Image img, Double valor, String status, Date dataDisponibilizacao, String descricao) {
 		this.id = id;
@@ -19,6 +20,16 @@ public class Tema {
 		this.status = status;
 		this.dataDisponibilizacao = dataDisponibilizacao;
 		this.descricao = descricao;
+	}
+	
+	public Tema(Integer id, Image img, Double valor, String status, Date dataDisponibilizacao, String descricao, boolean select) {
+		this.id = id;
+		this.img = img;
+		this.valor = valor;
+		this.status = status;
+		this.dataDisponibilizacao = dataDisponibilizacao;
+		this.descricao = descricao;
+		this.select = select;
 	}
 
 	public Tema() {
@@ -45,8 +56,8 @@ public class Tema {
 		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(String aValue) {
+		this.status = aValue;
 	}
 
 	public Date getDataDisponibilizacao() {
@@ -71,6 +82,14 @@ public class Tema {
 
 	public void setImg(Image img) {
 		this.img = img;
+	}
+	
+	public boolean getSelect() {
+		return select;
+	}
+	
+	public void setSelect(Boolean select) {
+		this.select = select;
 	}
 	
 	@Override

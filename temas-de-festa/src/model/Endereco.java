@@ -7,6 +7,7 @@ public class Endereco {
 	private String estado;
 	private Integer numero;
 	private String complemento;
+	private boolean select;
 
 	public Endereco(int idCliente, String logradouro, String cidade, String estado, int numero,
 			String complemento) {
@@ -17,6 +18,18 @@ public class Endereco {
 		this.numero = numero;
 		this.complemento = complemento;
 	}
+	
+	public Endereco(int idCliente, String logradouro, String cidade, String estado, int numero,
+			String complemento, boolean status) {
+		this.idCliente = idCliente;
+		this.logradouro = logradouro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.select = status;
+	}
+	
 	public Endereco() {
 		
 	}
@@ -72,6 +85,14 @@ public class Endereco {
 	public static String showUF(String estado) {
 		System.out.println(estado);
 		return estado;
+	}
+	
+	public boolean getSelect() {
+		return select;
+	}
+	
+	public void setSelect(boolean select) {
+		select = select;
 	}
 
 	@Override

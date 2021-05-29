@@ -10,7 +10,7 @@ public class Cliente {
 	private String telefone;
 	private String email;
 	private Endereco endereco;
-	private boolean status;
+	private boolean select;
 
 	public Cliente(int id, Date dataProspeccao, String nome, String cpfcnpj, String telefone, String email,
 			Endereco endereco) {
@@ -24,9 +24,19 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 	
-	public Cliente (boolean status) {
-		this.status = status;
+	public Cliente(int id, Date dataProspeccao, String nome, String cpfcnpj, String telefone, String email,
+			Endereco endereco, boolean status) {
+		super();
+		this.id = id;
+		this.dataProspeccao = dataProspeccao;
+		this.nome = nome;
+		this.cpfcnpj = cpfcnpj;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+		this.select = status;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -84,12 +94,12 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 	
-	public Boolean getStatus() {
-		return status;
+	public Boolean getSelect() {
+		return select;
 	}
 	
-	public void setStatus(Boolean status) {
-		this.status = status;
+	public void setSelect(Boolean select) {
+		this.select = select;
 	}
 
 	@Override
