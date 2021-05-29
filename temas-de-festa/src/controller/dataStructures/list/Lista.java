@@ -1,8 +1,11 @@
 package controller.dataStructures.list;
 
+import java.util.Objects;
+
 import javax.swing.JOptionPane;
 
 public class Lista<T> {
+	
 	private No<T> primeiroNo;
 	private No<T> ultimoNo;
 	private int tamanho;
@@ -171,7 +174,7 @@ public class Lista<T> {
 			}
 			return r.toString();
 		}
-	}
+	}	
 	
 	@Override
 	public String toString() {

@@ -30,7 +30,8 @@ public class ClienteController {
 						cliente[3], 
 						cliente[4], 
 						cliente[5], 
-						new Endereco()); // Necessario fazer o link com endereço
+						new Endereco());
+				((Appendable) br).append(line + "\r\n");
 				lista.inserir(data);
 			}
 			br.close();
@@ -54,7 +55,7 @@ public class ClienteController {
 			bw.close();
 
 		} catch (Exception e) {
-
+			System.out.println("Erro de salvamento.");
 		}
 	}
 	

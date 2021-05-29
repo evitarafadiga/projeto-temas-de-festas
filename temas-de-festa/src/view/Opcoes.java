@@ -85,22 +85,25 @@ public class Opcoes extends JFrame{
 				
 				switch(nomeOpcao) {
 				case "Cliente":
-					CadastroCliente Login = new CadastroCliente();
+					JTableExample Login = new JTableExample();
 					Login.setVisible(true);
 					dispose();
-				
+					break;
 				case "Festa":
-					CadastroFesta LoginFesta = new CadastroFesta();
+					JTableExample LoginFesta = new JTableExample();
 					//LoginFesta.setVisible(true);
 					//dispose();
+					break;
 				case "Endereco":
-					CadastroEndereco cadEnd = new CadastroEndereco();
+					JTableExample cadEnd = new JTableExample();
 					//cadEnd.setVisible(true);
 					//dispose();
+					break;
 				case "Tema":
-					CadastroTema cadTema = new CadastroTema();
+					JTableExample cadTema = new JTableExample();
 					cadTema.setVisible(true);
 					dispose();
+					break;
 				default:
 					break;
 					
@@ -117,22 +120,25 @@ public class Opcoes extends JFrame{
 				
 				switch(nomeOpcao) {
 				case "Cliente":
-					CadastroCliente Login = new CadastroCliente();
+					JTableExample Login = new JTableExample();
 					Login.setVisible(true);
 					dispose();
-				
+					break;
 				case "Festa":
-					CadastroFesta LoginFesta = new CadastroFesta();
+					JTableExample LoginFesta = new JTableExample();
 					//LoginFesta.setVisible(true);
 					//dispose();
+					break;
 				case "Endereco":
-					CadastroEndereco cadEnd = new CadastroEndereco();
+					JTableExample cadEnd = new JTableExample();
 					//cadEnd.setVisible(true);
 					//dispose();
+					break;
 				case "Tema":
-					CadastroTema cadTema = new CadastroTema();
+					JTableExample cadTema = new JTableExample();
 					cadTema.setVisible(true);
 					dispose();
+					break;
 				default:
 					break;
 					
@@ -149,22 +155,25 @@ public class Opcoes extends JFrame{
 			
 				switch(nomeOpcao) {
 				case "Cliente":
-					CadastroCliente Login = new CadastroCliente();
+					JTableExample Login = new JTableExample();
 					Login.setVisible(true);
 					dispose();
-				
+					break;
 				case "Festa":
-					CadastroFesta LoginFesta = new CadastroFesta();
+					JTableExample LoginFesta = new JTableExample();
 					//LoginFesta.setVisible(true);
 					//dispose();
+					break;
 				case "Endereco":
-					CadastroEndereco cadEnd = new CadastroEndereco();
+					JTableExample cadEnd = new JTableExample();
 					//cadEnd.setVisible(true);
 					//dispose();
+					break;
 				case "Tema":
-					CadastroTema cadTema = new CadastroTema();
+					JTableExample cadTema = new JTableExample();
 					cadTema.setVisible(true);
 					dispose();
+					break;
 				default:
 					break;
 					
