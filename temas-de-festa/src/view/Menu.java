@@ -130,7 +130,7 @@ public class Menu extends JFrame {
 		});
 		
 		btnSair.setBackground(new Color(211,211,211));
-		btnSair.setBounds(25, 211, 512, 45);
+		btnSair.setBounds(25, 400, 512, 45);
 		contentPane.add(btnSair);
 	}
 

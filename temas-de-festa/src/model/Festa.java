@@ -12,6 +12,7 @@ public class Festa {
 	private String descricaoDespesas;
 	private Date horaInicio;
 	private Date horaFim;
+	private boolean select;
 
 	public Festa(int cliente, int tema, Endereco endereco, Double valor, Double despesas, Double desconto,
 			String descricaoDespesas, Date horaInicio, Date horaFim) {
@@ -25,6 +26,24 @@ public class Festa {
 		this.horaInicio = horaInicio;
 		this.horaFim = horaFim;
 
+	}
+	
+	public Festa(int cliente, int tema, Endereco endereco, Double valor, Double despesas, Double desconto,
+			String descricaoDespesas, Date horaInicio, Date horaFim, boolean select) {
+		this.cliente = cliente;
+		this.tema = tema;
+		this.endereco = endereco;
+		this.valor = valor;
+		this.despesas = despesas;
+		this.desconto = desconto;
+		this.descricaoDespesas = descricaoDespesas;
+		this.horaInicio = horaInicio;
+		this.horaFim = horaFim;
+		this.select = select;
+	}
+
+	public Festa() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getCliente() {
@@ -97,6 +116,14 @@ public class Festa {
 
 	public void setHoraFim(Date horaFim) {
 		this.horaFim = horaFim;
+	}
+	
+	public boolean getSelect() {
+		return select;
+	}
+	
+	public void setSelect(boolean select) {
+		this.select = select;
 	}
 
 }

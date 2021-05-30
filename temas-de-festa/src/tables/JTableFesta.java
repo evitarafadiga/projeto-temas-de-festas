@@ -12,30 +12,29 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import controller.dataStructures.list.Lista;
+import model.Cliente;
 import model.ClienteTableModel;
 import model.Endereco;
-import model.EnderecoTableModel;
+import model.Festa;
+import model.FestaTableModel;
 import model.Tema;
-import model.Endereco;
 import view.Menu;
 
-public class JTableEndereco extends JFrame {
+public class JTableFesta extends JFrame {
+	
+	public static Lista lista = new Lista();
 
     private JTable tabela;
     private JScrollPane scrollPainel;
 
-    public JTableEndereco() {
+    public JTableFesta() {
         renderizarTela();
     }
 
     private void renderizarTela() {
-        
-        //4 ojetos criados para popular a tabela
-    
-    	
-        
+       
         //cria um objeto do nosso model
-        EnderecoTableModel model = new EnderecoTableModel(Menu.listaEnderecos);
+    	FestaTableModel model = new FestaTableModel(Menu.listaFestas);
         
         //instancia a tabela já com o model como argumento
         this.tabela = new JTable(model);
@@ -62,22 +61,22 @@ public class JTableEndereco extends JFrame {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Endereco t = new Endereco();
+				Festa t = new Festa();
 
-				for (int i = 0; i < Menu.listaEnderecos.tamanho(); i++) {
-					t = Menu.listaEnderecos.recuperar(i);
+				for (int i = 0; i < Menu.listaFestas.tamanho(); i++) {
+					t = Menu.listaFestas.recuperar(i);
 					if (t.getSelect() == true)
 						try {
-							Menu.listaEnderecos.remover(t);
+							Menu.listaFestas.remover(t);
 							;
-							JOptionPane.showMessageDialog(null, "Tema removido com sucesso", "Informação",
+							JOptionPane.showMessageDialog(null, "Festa removida com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						} catch (Exception e2) {
 							JOptionPane.showMessageDialog(null, "Erro na remoção.", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						}
 				}
-				JTableEndereco cadTema = new JTableEndereco();
+				JTableFesta cadTema = new JTableFesta();
 				cadTema.setVisible(true);
 				dispose();
 			}
@@ -93,7 +92,7 @@ public class JTableEndereco extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JTableEndereco tb = new JTableEndereco();
+                JTableFesta tb = new JTableFesta();
                 tb.setLocationRelativeTo(null);
                 tb.setVisible(true);
             }

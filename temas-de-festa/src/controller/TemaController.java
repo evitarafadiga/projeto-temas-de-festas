@@ -65,13 +65,9 @@ public class TemaController {
 
 	public static void main(String[] args) {
 		TemaController tc = new TemaController();
-<<<<<<< Updated upstream
+
 		System.out.println(tc.getListaTema().toString());
-		tc.saveListCliente(tc.getListaTema());
-=======
-		System.out.println(tc.getListaTemas().toString());
-		tc.saveListTema(tc.getListaTemas());
->>>>>>> Stashed changes
+		tc.saveListTema(tc.getListaTema());
 	}
 
 }

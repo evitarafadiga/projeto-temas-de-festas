@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import tables.JTableCliente;
 import tables.JTableEndereco;
+import tables.JTableFesta;
 import tables.JTableTema;
 
 public class Opcoes extends JFrame{
@@ -83,7 +84,7 @@ public class Opcoes extends JFrame{
 			}
 		});
 		btnClientes.setBackground(new Color(211,211,211));
-		btnClientes.setBounds(291, 68, 246, 45);
+		btnClientes.setBounds(25, 100, 512, 75);
 		contentPane.add(btnClientes);
 		
 		JButton btnTemas = new JButton("Lista de "+nomeOpcao);
@@ -97,7 +98,7 @@ public class Opcoes extends JFrame{
 					dispose();
 					break;
 				case "Festa":
-					JTableCliente LoginFesta = new JTableCliente();
+					JTableFesta LoginFesta = new JTableFesta();
 					LoginFesta.setVisible(true);
 					dispose();
 					break;
@@ -118,9 +119,9 @@ public class Opcoes extends JFrame{
 			}
 		});
 		btnTemas.setBackground(new Color(211,211,211));
-		btnTemas.setBounds(25, 140, 246, 45);
+		btnTemas.setBounds(25, 200, 512, 75);
 		contentPane.add(btnTemas);
-		
+		/*
 		JButton btnContratos = new JButton("Remocao de "+nomeOpcao);
 		btnContratos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -151,7 +152,7 @@ public class Opcoes extends JFrame{
 					
 				}
 			}
-		});
+		}); 
 		btnContratos.setBackground(new Color(211,211,211));
 		btnContratos.setBounds(291, 140, 246, 45);
 		contentPane.add(btnContratos);
@@ -190,7 +191,7 @@ public class Opcoes extends JFrame{
 		btnFestas.setBackground(new Color(211,211,211));
 		btnFestas.setBounds(25, 68, 246, 45);
 		contentPane.add(btnFestas);
-		
+		*/
 		JButton btnSair = new JButton("Voltar");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -201,7 +202,7 @@ public class Opcoes extends JFrame{
 		});
 		
 		btnSair.setBackground(new Color(211,211,211));
-		btnSair.setBounds(25, 211, 512, 45);
+		btnSair.setBounds(25, 400, 512, 45);
 		contentPane.add(btnSair);
 	}
 }
