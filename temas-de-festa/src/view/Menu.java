@@ -10,6 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controller.dataStructures.list.Lista;
+import controller.ClienteController;
+import controller.EnderecoController;
+import controller.FestaController;
+import controller.TemaController;
+import model.Cliente;
+import model.Endereco;
+import model.Tema;
+import model.Festa;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -18,10 +26,16 @@ import javax.swing.SwingConstants;
 
 public class Menu extends JFrame {
 
-	public static Lista listaClientes = new Lista();
-	public static Lista listaEnderecos = new Lista();
-	public static Lista listaTemas = new Lista();
-	public static Lista listaFestas = new Lista();
+	public static ClienteController clienteController = new ClienteController();
+	public static EnderecoController enderecoController = new EnderecoController();
+	public static TemaController temaController = new TemaController();
+	public static FestaController festaController = new FestaController();
+	
+	
+	public static Lista<Cliente> listaClientes = clienteController.getListaCliente();
+	public static Lista<Endereco> listaEnderecos = enderecoController.getListaEndereco();
+	public static Lista<Tema> listaTemas = temaController.getListaTema();
+	public static Lista<Festa> listaFestas = festaController.getListaFesta();
 	
 	private JPanel contentPane;
 	private String opcaoNome = "";

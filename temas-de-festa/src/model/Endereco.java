@@ -98,7 +98,7 @@ public class Endereco {
 	@Override
 	public String toString() {
 		return idCliente + ";" + logradouro + ";" + cidade + ";"
-				+ estado + ";" + numero + ";" + complemento + "\n";
+				+ estado + ";" + numero + ";" + complemento + ";" + select +"\n";
 	}
 	
 }

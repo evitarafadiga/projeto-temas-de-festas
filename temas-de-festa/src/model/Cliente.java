@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.text.DateFormat;
 
 public class Cliente {
 	private int id;
@@ -104,7 +105,8 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return id + ";" + dataProspeccao + ";" + nome + ";" + cpfcnpj + ";" + telefone + ";" + email + "\n";
+		DateFormat df = DateFormat.getInstance();
+		return id + ";" + df.format(dataProspeccao) + ";" + nome + ";" + cpfcnpj + ";" + telefone + ";" + email  + "\n";
 	}
 
 }

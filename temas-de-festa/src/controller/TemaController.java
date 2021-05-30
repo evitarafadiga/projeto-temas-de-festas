@@ -17,10 +17,10 @@ import model.Endereco;
 
 public class TemaController {
 	
-	final Path path = Paths.get("C:\\tema");
+	final Path path = Paths.get("C:\\ed\\tema.txt");
 	Lista<Tema> listaTema = new Lista<Tema>();
 
-	public Lista<Tema> getListaTemas() {
+	public Lista<Tema> getListaTema() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -65,8 +65,8 @@ public class TemaController {
 
 	public static void main(String[] args) {
 		TemaController tc = new TemaController();
-		System.out.println(tc.getListaTemas().toString());
-		tc.saveListCliente(tc.getListaTemas());
+		System.out.println(tc.getListaTema().toString());
+		tc.saveListCliente(tc.getListaTema());
 	}
 
 }

@@ -14,15 +14,23 @@ import controller.dataStructures.list.Lista;
 import model.Endereco;
 
 public class EnderecoController {
-	final Path path = Paths.get("C:\\endereco");
-	Lista<Endereco> lista = new Lista<Endereco>();
+	final Path path = Paths.get("C:\\ed\\endereco.txt");
+	static Lista<Endereco> lista = new Lista<Endereco>();
 
 	public Lista<Endereco> getListaEndereco() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] end = line.split(";");
-				Endereco data = new Endereco();// Necessario fazer o link com endereço
+				Endereco data = new Endereco(
+						Integer.parseInt(end[0]), //idCliente
+						end[1], //logradouro
+						end[2], //cidade
+						end[3], //estadi
+						Integer.parseInt(end[4]), //numero
+						end[5], //complemento
+						Boolean.parseBoolean(end[5]) //status
+						);// Necessario fazer o link com endereço
 				lista.inserir(data);
 			}
 			br.close();
@@ -34,6 +42,14 @@ public class EnderecoController {
 
 	public Endereco recuperar(int posicao) {
 		return lista.recuperar(posicao);
+	}
+	public Endereco recuperarPorCliente(int idCliente) {
+		for(int i=0; i < lista.tamanho();i++) {
+			if(lista.recuperar(i).getIdCliente() == idCliente) {
+				return lista.recuperar(i);
+			}
+		}
+		return null;
 	}
 	
 	public void saveListEndereco(Lista<Endereco> lista) {
@@ -57,7 +73,7 @@ public class EnderecoController {
 	public static void main(String[] args) {
 		EnderecoController cc = new EnderecoController();
 		System.out.println(cc.getListaEndereco().toString());
-		cc.saveListEndereco(cc.getListaEndereco());
+//		cc.saveListEndereco(cc.getListaEndereco());
 		
 	}
 }

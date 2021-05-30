@@ -196,6 +196,7 @@ public class Opcoes extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Menu menu = new Menu();
 				menu.setVisible(true);
+				dispose();
 			}
 		});
 		

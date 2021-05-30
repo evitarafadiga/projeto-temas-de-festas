@@ -153,7 +153,6 @@ public class CadastroTema extends JFrame {
 				Lista<Tema> lista = new Lista<Tema>();
 				lista.inserir(theme);
 				System.out.printf("Tema incluido na lista de temas: \n" + lista.recuperar(0).toString());
-
 			}
 
 		});

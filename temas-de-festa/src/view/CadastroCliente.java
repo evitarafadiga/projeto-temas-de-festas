@@ -5,10 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 
-import controller.ClienteController;
-import controller.EnderecoController;
-import controller.dataStructures.list.Lista;
 import model.Cliente;
 import model.Endereco;
 
@@ -32,7 +30,6 @@ public class CadastroCliente extends JFrame {
 	private JTextField txtEmail;
 	private JTextField txtLog;
 	private JTextField txtCid;
-//	private JTextField txtUf;
 	private JTextField txtNum;
 	private JTextField txtComp;
 	
@@ -137,7 +134,7 @@ public class CadastroCliente extends JFrame {
 //		txtUf.setBounds(280, 280, 207, 20);
 //		contentPane.add(txtUf);
 //		txtUf.setColumns(10);
-		JComboBox ufBox = new JComboBox(ufStrings);
+		JComboBox<String> ufBox = new JComboBox<String>(ufStrings);
 		ufBox.setSelectedIndex(0);
 		ufBox.setBounds(280, 280, 207, 20);
 		contentPane.add(ufBox);
@@ -169,37 +166,48 @@ public class CadastroCliente extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Chamar Cadastro
-				Cliente cliente = new Cliente(
-						1,
-						new Date(System.currentTimeMillis()), 
-						txtNome.getText(), 
-						txtCpf.getText(), 
-						txtTel.getText(), 
-						txtEmail.getText(),
-						end()
-					);
-				Menu.listaClientes.inserir(cliente);
-				Lista<Cliente> lista = new Lista<Cliente>();
-				lista.inserir(cliente);
-				System.out.printf("Cliente incluido na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
-				
-				ClienteController cc = new ClienteController();
-				cc.saveListCliente(lista);
+				try {
+					Cliente cliente = new Cliente(
+							Menu.listaClientes.recuperarUltimo() != null ? Menu.listaClientes.recuperarUltimo().getId()+1 : 0,
+									new Date(System.currentTimeMillis()), 
+									txtNome.getText(), 
+									txtCpf.getText(), 
+									txtTel.getText(), 
+									txtEmail.getText(),
+									end()
+							);
+					Menu.listaClientes.inserir(cliente);
+					Menu.listaEnderecos.inserir(end());
+					
+					
+					Menu.clienteController.saveListCliente(Menu.listaClientes);
+					Menu.enderecoController.saveListEndereco(Menu.listaEnderecos);
+					
+					txtNome.setText("");
+					txtCpf.setText("");
+					txtTel.setText("");
+					txtEmail.setText("");
+					txtLog.setText("");
+					txtCid.setText("");
+					txtNum.setText("");
+					txtComp.setText("");
+					ufBox.setSelectedIndex(0);
+					JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso", "Informação", JOptionPane.INFORMATION_MESSAGE);
+					
+				} catch(Exception error) {
+					JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 			
 			public Endereco end() {
-				int num = 0;
-				Endereco end = new Endereco(1, txtLog.getText(),
-												txtCid.getText(),
-												(String) ufBox.getSelectedItem(),
-												Integer.parseInt(txtNum.getText()),
-												txtComp.getText());
-				Menu.listaEnderecos.inserir(end);
-				Lista<Endereco> listaEnd = new Lista<Endereco>();
-				listaEnd.inserir(end);
-				System.out.printf("Endereco incluido na lista: \n" + listaEnd.recuperar(0).toString(), Endereco.showUF(""));
-				EnderecoController ec = new EnderecoController();
-				ec.saveListEndereco(listaEnd);
+				Endereco end = new Endereco(
+						Menu.listaClientes.recuperarUltimo() != null ? Menu.listaClientes.recuperarUltimo().getId() : 0, 
+						txtLog.getText(),
+						txtCid.getText(),
+						(String) ufBox.getSelectedItem(),
+						Integer.parseInt(txtNum.getText()),
+						txtComp.getText()
+												);
 				return end;
 			}
 			

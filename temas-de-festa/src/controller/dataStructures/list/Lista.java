@@ -69,6 +69,11 @@ public class Lista<T> {
 		}
 	}
 	
+	public T recuperarUltimo() {
+		return this.ultimoNo != null? this.ultimoNo.getValor() : null;
+	}
+	
+	
 	private No<T> buscarNo(int posicao) {
 		if(posicao >= tamanho()) {
 			throw new IllegalArgumentException(String.format("Posicação inválida [%d]", posicao));

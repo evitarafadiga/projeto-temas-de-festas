@@ -18,10 +18,10 @@ import model.Endereco;
 
 public class FestaController {
 	
-	final Path path = Paths.get("C:\\festa");
+	final Path path = Paths.get("C:\\ed\\festa.txt");
 	Lista<Festa> listaFesta = new Lista<Festa>();
 
-	public Lista<Festa> getListaTemas() {
+	public Lista<Festa> getListaFesta() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -69,8 +69,8 @@ public class FestaController {
 
 	public static void main(String[] args) {
 		FestaController fc = new FestaController();
-		System.out.println(fc.getListaTemas().toString());
-		fc.saveListFesta(fc.getListaTemas());
+		System.out.println(fc.getListaFesta().toString());
+		fc.saveListFesta(fc.getListaFesta());
 	}
 
 }
