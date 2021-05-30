@@ -195,6 +195,7 @@ public class CadastroFesta extends JFrame {
 						txtDesc.getText(),
 						new Date(System.currentTimeMillis()),
 						new Date(System.currentTimeMillis()));
+				Menu.listaFestas.inserir(festa);
 				Lista<Festa> lista = new Lista<Festa>();
 				lista.inserir(festa);
 				System.out.printf("Festa incluida na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
@@ -210,7 +211,7 @@ public class CadastroFesta extends JFrame {
 												(String) ufBox.getSelectedItem(),
 												Integer.parseInt(txtNum.getText()),
 												txtComp.getText());
-				
+				Menu.listaEnderecos.inserir(end);
 				Lista<Endereco> listaEnd = new Lista<Endereco>();
 				listaEnd.inserir(end);
 				System.out.printf("Endereco incluido na lista: \n" + listaEnd.recuperar(0).toString(), Endereco.showUF(""));

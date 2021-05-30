@@ -38,37 +38,10 @@ public class JTableTema extends JFrame {
         
         //4 ojetos criados para popular a tabela
     	   	
-    	JLabel imageLabel = new JLabel();
-        ImageIcon imageicon = new ImageIcon(selectedImagePath);
-        Image img = imageicon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
-        imageLabel.setIcon(new ImageIcon(img));
     	
-    	Lista<Tema> lista = new Lista<>();
-    	Tema c = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c1 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c2 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c3 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c4 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c5 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c6 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c7 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c8 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-    	Tema c9 = new Tema(1,img,2.89,"Disponível",null,"Tema de festa infantil");
-        
-       
-        lista.inserir(c);
-        lista.inserir(c1);
-        lista.inserir(c2);
-        lista.inserir(c3);
-        lista.inserir(c4);
-        lista.inserir(c5);
-        lista.inserir(c6);
-        lista.inserir(c7);
-        lista.inserir(c8);
-        lista.inserir(c9);
         
         //cria um objeto do nosso model
-        TemaTableModel model = new TemaTableModel(lista);
+        TemaTableModel model = new TemaTableModel(Menu.listaTemas);
         
         //instancia a tabela já com o model como argumento
         this.tabela = new JTable(model);

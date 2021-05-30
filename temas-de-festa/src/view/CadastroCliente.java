@@ -178,6 +178,7 @@ public class CadastroCliente extends JFrame {
 						txtEmail.getText(),
 						end()
 					);
+				Menu.listaClientes.inserir(cliente);
 				Lista<Cliente> lista = new Lista<Cliente>();
 				lista.inserir(cliente);
 				System.out.printf("Cliente incluido na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
@@ -193,7 +194,7 @@ public class CadastroCliente extends JFrame {
 												(String) ufBox.getSelectedItem(),
 												Integer.parseInt(txtNum.getText()),
 												txtComp.getText());
-				
+				Menu.listaEnderecos.inserir(end);
 				Lista<Endereco> listaEnd = new Lista<Endereco>();
 				listaEnd.inserir(end);
 				System.out.printf("Endereco incluido na lista: \n" + listaEnd.recuperar(0).toString(), Endereco.showUF(""));

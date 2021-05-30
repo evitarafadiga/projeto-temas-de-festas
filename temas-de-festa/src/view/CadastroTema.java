@@ -148,6 +148,8 @@ public class CadastroTema extends JFrame {
 							(String) statusBox.getSelectedItem(),
 							new Date(System.currentTimeMillis()),
 							txtDesc.getText());
+				Menu.listaTemas.inserir(theme);
+				
 				Lista<Tema> lista = new Lista<Tema>();
 				lista.inserir(theme);
 				System.out.printf("Tema incluido na lista de temas: \n" + lista.recuperar(0).toString());

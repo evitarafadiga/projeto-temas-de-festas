@@ -17,6 +17,8 @@ import model.Endereco;
 import view.Menu;
 
 public class JTableCliente extends JFrame {
+	
+	public static Lista lista = new Lista();
 
     private JTable tabela;
     private JScrollPane scrollPainel;
@@ -26,35 +28,9 @@ public class JTableCliente extends JFrame {
     }
 
     private void renderizarTela() {
-        
-        //4 ojetos criados para popular a tabela
-    
-    	Lista<Cliente> lista = new Lista<>();
-    	Endereco end = null;
-        Cliente c = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c1 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c2 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c3 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c4 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c5 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c6 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c7 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c8 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        Cliente c9 = new Cliente(1,null,"Fulano da Silva","698654585","11977548392","fulano.123@yahoo.com.br",end);
-        
-        lista.inserir(c);
-        lista.inserir(c1);
-        lista.inserir(c2);
-        lista.inserir(c3);
-        lista.inserir(c4);
-        lista.inserir(c5);
-        lista.inserir(c6);
-        lista.inserir(c7);
-        lista.inserir(c8);
-        lista.inserir(c9);
-        
+       
         //cria um objeto do nosso model
-        ClienteTableModel model = new ClienteTableModel(lista);
+        ClienteTableModel model = new ClienteTableModel(Menu.listaClientes);
         
         //instancia a tabela já com o model como argumento
         this.tabela = new JTable(model);

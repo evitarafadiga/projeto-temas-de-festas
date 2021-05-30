@@ -30,32 +30,10 @@ public class JTableEndereco extends JFrame {
         
         //4 ojetos criados para popular a tabela
     
-    	Lista<Endereco> lista = new Lista<>();
-    	Endereco end = null;
-        Endereco c = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c1 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c2 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c3 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c4 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c5 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c6 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c7 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c8 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-        Endereco c9 = new Endereco(1, "R. dos Bobos", "São Paulo", "SP", 155, "prox. a via ...");
-       
-        lista.inserir(c);
-        lista.inserir(c1);
-        lista.inserir(c2);
-        lista.inserir(c3);
-        lista.inserir(c4);
-        lista.inserir(c5);
-        lista.inserir(c6);
-        lista.inserir(c7);
-        lista.inserir(c8);
-        lista.inserir(c9);
+    	
         
         //cria um objeto do nosso model
-        EnderecoTableModel model = new EnderecoTableModel(lista);
+        EnderecoTableModel model = new EnderecoTableModel(Menu.listaEnderecos);
         
         //instancia a tabela já com o model como argumento
         this.tabela = new JTable(model);
