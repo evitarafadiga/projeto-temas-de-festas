@@ -45,7 +45,7 @@ public class TemaController {
 		return listaTema.recuperar(posicao);
 	}
 
-	public void saveListCliente(Lista<Tema> lista) {
+	public void saveListTema(Lista<Tema> lista) {
 		try {
 			BufferedWriter bw = null;
 			File file = new File(path.toString());
@@ -65,8 +65,13 @@ public class TemaController {
 
 	public static void main(String[] args) {
 		TemaController tc = new TemaController();
+<<<<<<< Updated upstream
 		System.out.println(tc.getListaTema().toString());
 		tc.saveListCliente(tc.getListaTema());
+=======
+		System.out.println(tc.getListaTemas().toString());
+		tc.saveListTema(tc.getListaTemas());
+>>>>>>> Stashed changes
 	}
 
 }

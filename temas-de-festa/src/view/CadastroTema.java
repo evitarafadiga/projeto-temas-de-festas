@@ -137,17 +137,17 @@ public class CadastroTema extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Chamar Cadastro
-				Image image = null;
-				File sourceimage = new File("/images/broken-icon.gif");
-				try { image = ImageIO.read(sourceimage);} catch (IOException e1) { e1.printStackTrace();}
+				Image image = null;				
 				
-				try { image = ImageIO.read(chooser.getSelectedFile());} catch (IOException ex) { ex.printStackTrace();}
 				Tema theme = new Tema(1,					
 							image,
 							Double.parseDouble(txtValor.getText().replaceAll(",",".")),
 							(String) statusBox.getSelectedItem(),
 							new Date(System.currentTimeMillis()),
 							txtDesc.getText());
+				
+				try { image = ImageIO.read(chooser.getSelectedFile());} catch (IOException ex) { ex.printStackTrace();}
+				
 				Menu.listaTemas.inserir(theme);
 				
 				Lista<Tema> lista = new Lista<Tema>();

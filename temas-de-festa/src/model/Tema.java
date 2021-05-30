@@ -11,7 +11,7 @@ public class Tema {
 	private String status;
 	private Date dataDisponibilizacao;
 	private String descricao;
-	private Boolean select;
+	private boolean select;
 
 	public Tema(Integer id, Image img, Double valor, String status, Date dataDisponibilizacao, String descricao) {
 		this.id = id;
@@ -84,12 +84,12 @@ public class Tema {
 		this.img = img;
 	}
 	
-	public boolean getSelect() {
-		return select;
+	public void setSelect(boolean select) {
+		this.select = select;
 	}
 	
-	public void setSelect(Boolean select) {
-		this.select = select;
+	public boolean getSelect() {
+		return select;
 	}
 	
 	@Override
