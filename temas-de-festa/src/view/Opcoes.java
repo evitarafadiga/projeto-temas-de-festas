@@ -38,7 +38,7 @@ public class Opcoes extends JFrame{
 	public Opcoes(String nomeOpcao) {
 		setTitle(nomeOpcao);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400, 100, 576, 500);
+		setBounds(400, 100, 576, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(143,188,143));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -64,13 +64,13 @@ public class Opcoes extends JFrame{
 					break;
 				case "Festa":
 					CadastroFesta LoginFesta = new CadastroFesta();
-					//LoginFesta.setVisible(true);
-					//dispose();
+					LoginFesta.setVisible(true);
+					dispose();
 					break;
 				case "Endereco":
-					CadastroEndereco cadEnd = new CadastroEndereco();
-					//cadEnd.setVisible(true);
-					//dispose();
+					CadastroCliente cadEnd = new CadastroCliente();
+					cadEnd.setVisible(true);
+					dispose();
 					break;
 				case "Tema":
 					CadastroTema cadTema = new CadastroTema();
@@ -98,13 +98,13 @@ public class Opcoes extends JFrame{
 					break;
 				case "Festa":
 					JTableCliente LoginFesta = new JTableCliente();
-					//LoginFesta.setVisible(true);
-					//dispose();
+					LoginFesta.setVisible(true);
+					dispose();
 					break;
 				case "Endereco":
 					JTableEndereco cadEnd = new JTableEndereco();
-					//cadEnd.setVisible(true);
-					//dispose();
+					cadEnd.setVisible(true);
+					dispose();
 					break;
 				case "Tema":
 					JTableTema cadTema = new JTableTema();
@@ -133,13 +133,13 @@ public class Opcoes extends JFrame{
 					break;
 				case "Festa":
 					JTableCliente LoginFesta = new JTableCliente();
-					//LoginFesta.setVisible(true);
-					//dispose();
+					LoginFesta.setVisible(true);
+					dispose();
 					break;
 				case "Endereco":
 					JTableEndereco cadEnd = new JTableEndereco();
-					//cadEnd.setVisible(true);
-					//dispose();
+					cadEnd.setVisible(true);
+					dispose();
 					break;
 				case "Tema":
 					JTableTema cadTema = new JTableTema();
@@ -168,13 +168,13 @@ public class Opcoes extends JFrame{
 					break;
 				case "Festa":
 					JTableCliente LoginFesta = new JTableCliente();
-					//LoginFesta.setVisible(true);
-					//dispose();
+					LoginFesta.setVisible(true);
+					dispose();
 					break;
 				case "Endereco":
 					JTableEndereco cadEnd = new JTableEndereco();
-					//cadEnd.setVisible(true);
-					//dispose();
+					cadEnd.setVisible(true);
+					dispose();
 					break;
 				case "Tema":
 					JTableTema cadTema = new JTableTema();

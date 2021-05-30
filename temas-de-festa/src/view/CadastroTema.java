@@ -50,7 +50,7 @@ public class CadastroTema extends JFrame {
 	public CadastroTema() {
 		setTitle("Cadastro de Temas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400, 100, 576, 500);
+		setBounds(400, 100, 576, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(143, 188, 143));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
