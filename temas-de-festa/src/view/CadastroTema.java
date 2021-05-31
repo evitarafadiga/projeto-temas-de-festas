@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -71,7 +72,7 @@ public class CadastroTema extends JFrame {
 		lblPreco.setBounds(100, 130, 150, 14);
 		contentPane.add(lblPreco);
 
-		JComboBox statusBox = new JComboBox(status);
+		JComboBox<String> statusBox = new JComboBox<String>(status);
 		statusBox.setSelectedIndex(0);
 		statusBox.setBounds(280, 190, 207, 20);
 		contentPane.add(statusBox);
@@ -138,21 +139,37 @@ public class CadastroTema extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// Chamar Cadastro
 				Image image = null;				
+				try { 
+					image = ImageIO.read(chooser.getSelectedFile());
+				} catch (Exception ex) { 
+					JOptionPane.showMessageDialog(null, "Erro ao carregar imagem", "Erro", JOptionPane.ERROR_MESSAGE);
+					ex.printStackTrace();
+					return;
+				}
 				
-				Tema theme = new Tema(1,					
+				try {
+					Tema theme = new Tema(
+							Menu.listaTemas.recuperarUltimo() != null ?Menu.listaTemas.recuperarUltimo().getId() + 1 : 0,					
 							image,
 							Double.parseDouble(txtValor.getText().replaceAll(",",".")),
 							(String) statusBox.getSelectedItem(),
 							new Date(System.currentTimeMillis()),
-							txtDesc.getText());
-				
-				try { image = ImageIO.read(chooser.getSelectedFile());} catch (IOException ex) { ex.printStackTrace();}
-				
-				Menu.listaTemas.inserir(theme);
-				
-				Lista<Tema> lista = new Lista<Tema>();
-				lista.inserir(theme);
-				System.out.printf("Tema incluido na lista de temas: \n" + lista.recuperar(0).toString());
+							txtDesc.getText()
+							);
+					
+					
+					Menu.listaTemas.inserir(theme);
+					Menu.temaController.saveListTema(Menu.listaTemas);
+					JOptionPane.showMessageDialog(null, "Tema salvo com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+					txtNome.setText("");
+					txtValor.setText("");
+					statusBox.setSelectedIndex(0);
+					txtDesc.setText("");
+					image = null;
+				} catch(Exception ex) {
+					ex.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Erro ao salvar tema", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 
 		});

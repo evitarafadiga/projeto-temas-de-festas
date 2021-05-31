@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.util.Date;
 
 import controller.dataStructures.list.Lista;
@@ -23,20 +24,21 @@ public class TemaController {
 	public Lista<Tema> getListaTema() {
 		try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
 			String line;
+			DateFormat df = DateFormat.getInstance();
 			while ((line = br.readLine()) != null) {
 				String[] tema = line.split(";");
 				Tema data = new Tema(
 						Integer.parseInt(tema[0]),
 						null, 								// <----- TRATAR ESSA IMAGE
-						Double.parseDouble(tema[2]),
-						tema[3],
-						new Date(tema[4]),
-						tema[5]);
+						Double.parseDouble(tema[1]),
+						tema[2],
+						df.parse(tema[3]),
+						tema[4]);
 				listaTema.inserir(data);
 			}
 			br.close();
 		} catch (Exception e) {
-			System.out.println("Erro");
+			System.out.println("Erro Leitura");
 		}
 		return listaTema;
 	}
@@ -55,7 +57,7 @@ public class TemaController {
 			bw.close();
 
 		} catch (Exception e) {
-
+			System.out.println("Erro Salvamento");
 		}
 	}
 
@@ -67,7 +69,7 @@ public class TemaController {
 		TemaController tc = new TemaController();
 
 		System.out.println(tc.getListaTema().toString());
-		tc.saveListTema(tc.getListaTema());
+//		tc.saveListTema(tc.getListaTema());
 	}
 
 }

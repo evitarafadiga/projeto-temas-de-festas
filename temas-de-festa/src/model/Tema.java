@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Image;
+import java.text.DateFormat;
 import java.util.Date;
 
 public class Tema {
@@ -94,8 +95,8 @@ public class Tema {
 	
 	@Override
 	public String toString() {
-		return "Tema [id=" + id + ", valor=" + valor + ", status=" + status + ", dataDisponibilizacao="
-				+ dataDisponibilizacao + ", descricao=" + descricao + "]";
+		DateFormat df = DateFormat.getInstance();
+		return id + ";" + valor + ";" + status + ";" + df.format(dataDisponibilizacao) + ";" + descricao  + "\n";
 	}
 
 }

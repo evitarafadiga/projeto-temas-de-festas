@@ -70,8 +70,8 @@ public class JTableCliente extends JFrame {
 							JOptionPane.showMessageDialog(null, "Cliente removido com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						} catch (Exception e2) {
-							JOptionPane.showMessageDialog(null, "Erro na remoção.", "Informação",
-									JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Erro na remoção.", "Erro",
+									JOptionPane.ERROR_MESSAGE);
 						}
 				}
 				JTableCliente cadTema = new JTableCliente();
