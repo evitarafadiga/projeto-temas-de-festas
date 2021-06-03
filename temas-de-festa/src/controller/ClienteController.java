@@ -7,13 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Date;
 import java.text.DateFormat;
 
 import controller.dataStructures.list.Lista;
-import controller.EnderecoController;
 import model.Cliente;
-import model.Endereco;
 
 public class ClienteController {
 	final Path path = Paths.get("C://ed//cliente.txt");

@@ -69,7 +69,7 @@ public class JTableEndereco extends JFrame {
 					if (t.getSelect() == true)
 						try {
 							Menu.listaEnderecos.remover(t);
-							;
+							Menu.enderecoController.saveListEndereco(Menu.listaEnderecos);
 							JOptionPane.showMessageDialog(null, "Tema removido com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						} catch (Exception e2) {

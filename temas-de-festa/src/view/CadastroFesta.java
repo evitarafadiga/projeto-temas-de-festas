@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -185,38 +186,41 @@ public class CadastroFesta extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Chamar Cadastro
-				Festa festa = new Festa(
-						Integer.parseInt(txtClienteId.getText()),
-						Integer.parseInt(txtTemaId.getText()),
-						end(),
-						Double.parseDouble(txtValor.getText().replaceAll(",",".")),
-						Double.parseDouble(txtDespesas.getText().replaceAll(",",".")),
-						Double.parseDouble(txtDesconto.getText().replaceAll(",",".")),
-						txtDesc.getText(),
-						new Date(System.currentTimeMillis()),
-						new Date(System.currentTimeMillis()));
-				Menu.listaFestas.inserir(festa);
-				Lista<Festa> lista = new Lista<Festa>();
-				lista.inserir(festa);
-				System.out.printf("Festa incluida na lista: \n" + lista.recuperar(0).toString(), Endereco.showUF(""));
+				try {
+					Festa festa = new Festa(
+							Integer.parseInt(txtClienteId.getText()),
+							Integer.parseInt(txtTemaId.getText()),
+							end(),
+							Double.parseDouble(txtValor.getText().replaceAll(",",".")),
+							Double.parseDouble(txtDespesas.getText().replaceAll(",",".")),
+							Double.parseDouble(txtDesconto.getText().replaceAll(",",".")),
+							txtDesc.getText(),
+							new Date(System.currentTimeMillis()),
+							new Date(System.currentTimeMillis()));
+					
+					Menu.listaFestas.inserir(festa);
+					Menu.listaEnderecos.inserir(end());
+					
+					
+					Menu.festaController.saveListFesta(Menu.listaFestas);
+					Menu.enderecoController.saveListEndereco(Menu.listaEnderecos);
+					
+				} catch(Exception error) {
+					JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
 				
-				FestaController cc = new FestaController();
-				cc.saveListFesta(lista);
 			}
 			
 			public Endereco end() {
-				int num = 0;
-				Endereco end = new Endereco(1, txtLog.getText(),
-												txtCid.getText(),
-												(String) ufBox.getSelectedItem(),
-												Integer.parseInt(txtNum.getText()),
-												txtComp.getText());
-				Menu.listaEnderecos.inserir(end);
-				Lista<Endereco> listaEnd = new Lista<Endereco>();
-				listaEnd.inserir(end);
-				System.out.printf("Endereco incluido na lista: \n" + listaEnd.recuperar(0).toString(), Endereco.showUF(""));
-				EnderecoController ec = new EnderecoController();
-				ec.saveListEndereco(listaEnd);
+				Endereco end = new Endereco(
+						Integer.parseInt(txtClienteId.getText()), 
+						Integer.parseInt(txtTemaId.getText()),
+						txtLog.getText(),
+						txtCid.getText(),
+						(String) ufBox.getSelectedItem(),
+						Integer.parseInt(txtNum.getText()),
+						txtComp.getText()
+												);
 				return end;
 			}
 			

@@ -2,6 +2,7 @@ package model;
 
 public class Endereco {
 	private int idCliente;
+	private int idFesta;
 	private String logradouro;
 	private String cidade;
 	private String estado;
@@ -9,9 +10,10 @@ public class Endereco {
 	private String complemento;
 	private boolean select;
 
-	public Endereco(int idCliente, String logradouro, String cidade, String estado, int numero,
+	public Endereco(int idCliente, int idFesta, String logradouro, String cidade, String estado, int numero,
 			String complemento) {
 		this.idCliente = idCliente;
+		this.idFesta = idFesta;
 		this.logradouro = logradouro;
 		this.cidade = cidade;
 		this.estado = estado;
@@ -19,9 +21,10 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 	
-	public Endereco(int idCliente, String logradouro, String cidade, String estado, int numero,
+	public Endereco(int idCliente, int idFesta, String logradouro, String cidade, String estado, int numero,
 			String complemento, boolean status) {
 		this.idCliente = idCliente;
+		this.idFesta = idFesta;
 		this.logradouro = logradouro;
 		this.cidade = cidade;
 		this.estado = estado;
@@ -95,9 +98,17 @@ public class Endereco {
 		select = select;
 	}
 
+	public int getIdFesta() {
+		return idFesta;
+	}
+
+	public void setIdFesta(int idFesta) {
+		this.idFesta = idFesta;
+	}
+
 	@Override
 	public String toString() {
-		return idCliente + ";" + logradouro + ";" + cidade + ";"
+		return idCliente + ";" + idFesta + ";" +logradouro + ";" + cidade + ";"
 				+ estado + ";" + numero + ";" + complemento + ";" + select +"\n";
 	}
 	

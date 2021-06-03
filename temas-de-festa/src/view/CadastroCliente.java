@@ -202,6 +202,7 @@ public class CadastroCliente extends JFrame {
 			public Endereco end() {
 				Endereco end = new Endereco(
 						Menu.listaClientes.recuperarUltimo() != null ? Menu.listaClientes.recuperarUltimo().getId() : 0, 
+						-1,
 						txtLog.getText(),
 						txtCid.getText(),
 						(String) ufBox.getSelectedItem(),

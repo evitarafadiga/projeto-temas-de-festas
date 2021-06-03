@@ -1,5 +1,6 @@
 package model;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 public class Festa {
@@ -125,5 +126,15 @@ public class Festa {
 	public void setSelect(boolean select) {
 		this.select = select;
 	}
+
+	@Override
+	public String toString() {
+		DateFormat df = DateFormat.getInstance();
+		return cliente + ";" + tema + ";" + valor
+				+ ";" + despesas + ";" + desconto + ";" + descricaoDespesas
+				+ ";" + df.format(horaInicio) + ";" + df.format(horaFim) + ";" + select + "\n";
+	}
+	
+	
 
 }

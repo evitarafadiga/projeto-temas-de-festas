@@ -24,12 +24,13 @@ public class EnderecoController {
 				String[] end = line.split(";");
 				Endereco data = new Endereco(
 						Integer.parseInt(end[0]), //idCliente
-						end[1], //logradouro
-						end[2], //cidade
-						end[3], //estadi
-						Integer.parseInt(end[4]), //numero
-						end[5], //complemento
-						Boolean.parseBoolean(end[5]) //status
+						Integer.parseInt(end[1]), //idFesta
+						end[2], //logradouro
+						end[3], //cidade
+						end[4], //estado
+						Integer.parseInt(end[5]), //numero
+						end[6], //complemento
+						Boolean.parseBoolean(end[7]) //status
 						);// Necessario fazer o link com endereço
 				lista.inserir(data);
 			}
@@ -46,6 +47,15 @@ public class EnderecoController {
 	public Endereco recuperarPorCliente(int idCliente) {
 		for(int i=0; i < lista.tamanho();i++) {
 			if(lista.recuperar(i).getIdCliente() == idCliente) {
+				return lista.recuperar(i);
+			}
+		}
+		return null;
+	}
+	
+	public Endereco recuperarPorFesta(int idCliente, int idFesta) {
+		for(int i=0; i < lista.tamanho();i++) {
+			if((lista.recuperar(i).getIdFesta() == idFesta) && (lista.recuperar(i).getIdCliente() == idCliente)) {
 				return lista.recuperar(i);
 			}
 		}

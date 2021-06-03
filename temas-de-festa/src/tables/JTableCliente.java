@@ -51,9 +51,6 @@ public class JTableCliente extends JFrame {
         scrollPainel.setBounds(0, 0, 790, 500);
 
         contentPane.add(scrollPainel);
-//        this.pack();
-//        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setBounds(400, 100, 576, 500);
         
         JButton btnSair = new JButton("Voltar");
 		btnSair.addActionListener(new ActionListener() {
@@ -78,6 +75,7 @@ public class JTableCliente extends JFrame {
 					if (t.getSelect() == true)
 						try {
 							Menu.listaClientes.remover(t);
+							Menu.clienteController.saveListCliente(Menu.listaClientes);
 							;
 							JOptionPane.showMessageDialog(null, "Cliente removido com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);

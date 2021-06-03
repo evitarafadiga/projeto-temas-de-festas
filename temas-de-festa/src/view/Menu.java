@@ -96,18 +96,18 @@ public class Menu extends JFrame {
 		btnTemas.setBounds(25, 140, 246, 45);
 		contentPane.add(btnTemas);
 		
-		JButton btnContratos = new JButton("CONTRATOS");
-		btnContratos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				opcaoNome = "Contrato";
-				Opcoes novoContrato = new Opcoes(opcaoNome);
-				novoContrato.setVisible(true);
-				dispose();
-			}
-		});
-		btnContratos.setBackground(new Color(211,211,211));
-		btnContratos.setBounds(291, 140, 246, 45);
-		contentPane.add(btnContratos);
+//		JButton btnContratos = new JButton("CONTRATOS");
+//		btnContratos.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				opcaoNome = "Contrato";
+//				Opcoes novoContrato = new Opcoes(opcaoNome);
+//				novoContrato.setVisible(true);
+//				dispose();
+//			}
+//		});
+//		btnContratos.setBackground(new Color(211,211,211));
+//		btnContratos.setBounds(291, 140, 246, 45);
+//		contentPane.add(btnContratos);
 		
 		JButton btnFestas = new JButton("FESTAS");
 		btnFestas.addActionListener(new ActionListener() {
