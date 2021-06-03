@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -10,7 +11,7 @@ public class FestaTableModel extends AbstractTableModel {
 	
     //aqui transformei em coluna cada propriedade de Funcionario
     //que eu quero que seja exibida na tabela  
-    private String colunas[] = {"Cliente ID", "Tema ID","Endereço", "Valor", "Despesas", "Descricao de Despesas", "Hora Início", "Hora Fim", "Selecionado"};
+    private String colunas[] = {"Cliente ID", "Tema ID","Endereço", "Valor", "Despesas", "Descricao de Despesas", "Data/Hora Início", "Data/Hora Fim", "Selecionado"};
     private Lista<Festa> festa;
     private final int COLUNA_ID = 0;
     private final int COLUNA_IDTEMA = 1;
@@ -66,9 +67,9 @@ public class FestaTableModel extends AbstractTableModel {
             case COLUNA_DESC:
                 return String.class;
             case COLUNA_HORAI:
-                return Date.class;
+                return String.class;
             case COLUNA_HORAF:
-            	return Date.class;
+            	return String.class;
             case COLUNA_SELECT:
             	return Boolean.class;
             default:
@@ -80,7 +81,7 @@ public class FestaTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Festa festa = this.festa.recuperar(rowIndex);
-
+        DateFormat df = DateFormat.getInstance();
         switch (columnIndex) {
             
             case COLUNA_ID:
@@ -96,9 +97,9 @@ public class FestaTableModel extends AbstractTableModel {
             case COLUNA_DESC:
                 return festa.getDescricaoDespesas();
             case COLUNA_HORAI:
-                return festa.getHoraInicio();
+                return df.format(festa.getHoraInicio());
             case COLUNA_HORAF:
-            	return festa.getHoraFim();
+            	return df.format(festa.getHoraFim());
             case COLUNA_SELECT:
             	return festa.getSelect();
             default:

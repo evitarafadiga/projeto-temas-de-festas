@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
+import controller.MergeSort;
 import controller.dataStructures.list.Lista;
 import model.Cliente;
 import model.ClienteTableModel;
@@ -45,7 +46,13 @@ public class JTableFesta extends JFrame {
 		contentPane.setLayout(null);
        
         //cria um objeto do nosso model
-    	FestaTableModel model = new FestaTableModel(Menu.listaFestas);
+		MergeSort ms = new MergeSort();
+		Festa[] vetorFesta = ms.getListaFesta();
+		Lista<Festa> newListaFesta = new Lista<Festa>();
+		for(Festa dado : vetorFesta) {
+			newListaFesta.inserir(dado);
+		}
+    	FestaTableModel model = new FestaTableModel(newListaFesta);
         
         //instancia a tabela já com o model como argumento
         this.tabela = new JTable(model);
