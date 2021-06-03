@@ -169,7 +169,7 @@ public class Lista<T> {
 	
 	public String montaTxt() {
 		if(estaVazia()) {
-			return "Sem informações";
+			return null;
 		} else {
 			No aux = primeiroNo;
 			String r = "";

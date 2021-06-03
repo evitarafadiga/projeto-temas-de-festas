@@ -38,7 +38,8 @@ public class TemaController {
 			}
 			br.close();
 		} catch (Exception e) {
-			System.out.println("Erro Leitura");
+			System.out.println("Erro ao carregar lista de tema");
+			e.printStackTrace();
 		}
 		return listaTema;
 	}

@@ -40,7 +40,8 @@ public class FestaController {
 			}
 			br.close();
 		} catch (Exception e) {
-			System.out.println("Erro ao carregar");
+			System.out.println("Erro ao carregar lista de festa");
+			e.printStackTrace();
 		}
 		return listaFesta;
 	}

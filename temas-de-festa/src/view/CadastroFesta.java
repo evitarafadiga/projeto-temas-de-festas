@@ -205,6 +205,19 @@ public class CadastroFesta extends JFrame {
 					Menu.festaController.saveListFesta(Menu.listaFestas);
 					Menu.enderecoController.saveListEndereco(Menu.listaEnderecos);
 					
+					txtClienteId.setText("");
+					txtTemaId.setText("");
+					txtValor.setText("");
+					txtDespesas.setText("");
+					txtDesconto.setText("");
+					txtDesc.setText("");
+					txtLog.setText("");
+					txtCid.setText("");
+					txtNum.setText("");
+					txtComp.setText("");
+					ufBox.setSelectedIndex(0);
+					
+					JOptionPane.showMessageDialog(null, "Festa cadastrada com sucesso", "Informação", JOptionPane.INFORMATION_MESSAGE);
 				} catch(Exception error) {
 					JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
 				}

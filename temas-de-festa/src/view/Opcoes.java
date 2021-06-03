@@ -14,7 +14,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import tables.JTableCliente;
-import tables.JTableEndereco;
 import tables.JTableFesta;
 import tables.JTableTema;
 
@@ -100,11 +99,6 @@ public class Opcoes extends JFrame{
 				case "Festa":
 					JTableFesta LoginFesta = new JTableFesta();
 					LoginFesta.setVisible(true);
-					dispose();
-					break;
-				case "Endereco":
-					JTableEndereco cadEnd = new JTableEndereco();
-					cadEnd.setVisible(true);
 					dispose();
 					break;
 				case "Tema":

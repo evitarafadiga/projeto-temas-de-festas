@@ -77,8 +77,9 @@ public class JTableFesta extends JFrame {
 					if (t.getSelect() == true)
 						try {
 							Menu.listaFestas.remover(t);
-							Menu.festaController.saveListFesta(Menu.listaFestas);
-							;
+							if(!(Menu.listaFestas.estaVazia())) {
+								Menu.festaController.saveListFesta(Menu.listaFestas);
+							}
 							JOptionPane.showMessageDialog(null, "Festa removida com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						} catch (Exception e2) {

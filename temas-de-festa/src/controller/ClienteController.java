@@ -37,7 +37,8 @@ public class ClienteController {
 			}
 			br.close();
 		} catch (Exception e) {
-			System.out.println("Erro" + e.getMessage());
+			System.out.println("Erro ao carregar lista cliente" );
+			e.printStackTrace();
 		}
 		return lista;
 	}

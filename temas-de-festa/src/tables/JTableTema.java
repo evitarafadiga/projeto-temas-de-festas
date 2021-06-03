@@ -85,7 +85,9 @@ public class JTableTema extends JFrame {
 					if (t.getSelect() == true)
 						try {
 							Menu.listaTemas.remover(t);
-							Menu.temaController.saveListTema(Menu.listaTemas);
+							if(!(Menu.listaTemas.estaVazia())) {
+								Menu.temaController.saveListTema(Menu.listaTemas);
+							}
 							JOptionPane.showMessageDialog(null, "Tema removido com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						} catch (Exception e2) {

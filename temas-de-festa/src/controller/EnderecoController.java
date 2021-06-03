@@ -36,7 +36,8 @@ public class EnderecoController {
 			}
 			br.close();
 		} catch (Exception e) {
-			System.out.println("Erro");
+			System.out.println("Erro ao carregar lista de Enderecos");
+			e.printStackTrace();
 		}
 		return lista;
 	}

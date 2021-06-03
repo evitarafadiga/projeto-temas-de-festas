@@ -75,8 +75,9 @@ public class JTableCliente extends JFrame {
 					if (t.getSelect() == true)
 						try {
 							Menu.listaClientes.remover(t);
-							Menu.clienteController.saveListCliente(Menu.listaClientes);
-							;
+							if(!(Menu.listaClientes.estaVazia())) {
+								Menu.clienteController.saveListCliente(Menu.listaClientes);
+							}
 							JOptionPane.showMessageDialog(null, "Cliente removido com sucesso", "Informação",
 									JOptionPane.INFORMATION_MESSAGE);
 						} catch (Exception e2) {
